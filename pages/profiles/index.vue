@@ -72,6 +72,11 @@ const { res, error, pending, previous, next } = await useGetProfiles(
     &:not(last-child) {
       padding-right: 1rem;
     }
+    @media (max-width: 700px) {
+      &:not(last-child) {
+        padding-right: 0rem;
+      }
+    }
   }
 
   .button-wrapper {

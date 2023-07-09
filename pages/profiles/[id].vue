@@ -22,7 +22,6 @@
 
 <script setup lang="ts">
 const route = useRoute();
-
 const {
   data: profile,
   error,
@@ -30,7 +29,6 @@ const {
 } = await useLazyFetch(`https://reqres.in/api/users/${route.params.id}`, {
   transform: (result: Result) => {
     const profile: Profile = result.data;
-    console.log(profile);
     return profile;
   },
 });
