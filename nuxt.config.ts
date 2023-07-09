@@ -11,6 +11,8 @@ export default defineNuxtConfig({
   routeRules:{
     '/': {redirect: '/profiles'}
   },
-
+app: {
+  baseURL: '/vendre-test/'
+}
 
 })
