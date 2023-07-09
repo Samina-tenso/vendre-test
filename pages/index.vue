@@ -1,10 +1,9 @@
 <template>
-  <div>
-   
-  </div>
+  <div></div>
 </template>
 
 <script setup lang="ts">
+import path from "path";
 
 definePageMeta({
   middleware: [

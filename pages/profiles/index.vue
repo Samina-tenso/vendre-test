@@ -1,47 +1,46 @@
 <template>
   <div class="profiles wrapper">
-    <p v-if="pending">Fetching profiles...</p>
-    <p v-else-if="error">
-      Sorry we are unable to get profiles
-      <NuxtLink to="/prfiles"> Go back</NuxtLink>
-    </p>
-    <ul v-else="res?.profiles" class="profiles__list">
-      <li
-        :key="profile.id"
-        v-for="profile of res?.profiles"
-        class="profiles__item"
-      >
-        <Card
-          :isLink="true"
-          :first_name="profile.first_name"
-          :last_name="profile.last_name"
-          :id="profile.id"
-          :email="profile.email"
-          :avatar="profile.avatar"
-        />
-      </li>
-    </ul>
-    <div class="button-wrapper">
-      <button
-        :class="`${
-          page > 1 ? ' button--active' : 'button--disabled'
-        }  button button--prev`"
-        @click="previous()"
-      >
-        Previous
-      </button>
-      {{ page }} / {{ res?.pages }}
-      <button
-        :class="`${
-          res?.pages && page < res?.pages
-            ? ' button--active'
-            : 'button--disabled'
-        }  button button--next`"
-        @click="next()"
-      >
-        Next
-      </button>
+    <div v-if="res?.profiles">
+      <ul class="profiles__list">
+        <li
+          :key="profile.id"
+          v-for="profile of res?.profiles"
+          class="profiles__item"
+        >
+          <Card
+            :isLink="true"
+            :first_name="profile.first_name"
+            :last_name="profile.last_name"
+            :id="profile.id"
+            :email="profile.email"
+            :avatar="profile.avatar"
+          />
+        </li>
+      </ul>
+      <div class="button-wrapper">
+        <button
+          :class="`${
+            page > 1 ? ' button--active' : 'button--disabled'
+          }  button button--prev`"
+          @click="previous()"
+        >
+          Previous
+        </button>
+        {{ page }} / {{ res?.pages }}
+        <button
+          :class="`${
+            res?.pages && page < res?.pages
+              ? ' button--active'
+              : 'button--disabled'
+          }  button button--next`"
+          @click="next()"
+        >
+          Next
+        </button>
+      </div>
     </div>
+    <p v-else-if="pending">Fetching profiles...</p>
+    <p v-else="error">Sorry we are unable to get profiles</p>
   </div>
 </template>
 
@@ -83,6 +82,7 @@ const { res, error, pending, previous, next } = await useGetProfiles(
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
   }
   .button {
