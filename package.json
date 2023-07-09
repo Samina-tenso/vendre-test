@@ -5,11 +5,12 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "start": "nuxt start",
+    "preview": "nuxi preview",
+    "postinstall": "nuxi prepare",
     "test": "vitest --run --reporter verbose --globals",
     "test:watch": "vitest --run --reporter verbose --globals",
-    "deploy": "gh-pages -d dist"
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
@@ -22,6 +23,7 @@
     "@vue/test-utils": "^2.4.0",
     "jsdom": "^22.1.0",
     "nuxt": "^3.6.1",
+    "push-dir": "^0.4.1",
     "vitest": "^0.33.0"
   },
   "dependencies": {
