@@ -1,64 +1,49 @@
-# Nuxt 3 Minimal Starter
+# Vendre Test
+This is a test assignment for Vendre. 
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Background
+Fetchs profiles from resqres api and displays on web interface. 
+This project incorporates pagination to show multiple profiles, and dynamic pages to show individual profiles.
+Stylied using SCSS. 
+
+## Requirenments to run the project
+ Node.js v16.10.0 or newer
 
 ## Setup
+### Install
 
 Make sure to install the dependencies:
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
 yarn install
 ```
 
-## Development Server
+### Development Server
 
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
 yarn dev
 ```
 
-## Production
+### Production
 
 Build the application for production:
 
 ```bash
-# npm
-npm run build
 
-# pnpm
-pnpm run build
-
-# yarn
 yarn build
 ```
+### Test
 
-Locally preview production build:
+To test the Card component:
 
 ```bash
-# npm
-npm run preview
 
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
+yarn test
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-# vendre-test
+### Deploy
+To deploy to github pages run this command;
+```bash
+yarn deploy
+```
