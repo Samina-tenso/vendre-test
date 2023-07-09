@@ -1,13 +1,21 @@
 <template>
   <div class="wrapper">
-    <NuxtLink to="/profiles"> Go back to all users</NuxtLink>
     <p v-if="pending">Fetching user..</p>
-    <div v-else-if="profile?.email">
-      <p>Email: {{ profile.email }}</p>
+    <div class="profile" v-else-if="profile?.email">
+      <Card
+        :isLink="false"
+        :first_name="profile.first_name"
+        :last_name="profile.last_name"
+        :id="profile.id"
+        :email="profile.email"
+        :avatar="profile.avatar"
+      />
+      <NuxtLink to="/profiles"> Go back to all profiles</NuxtLink>
     </div>
+
     <p v-else="error">
       Sorry we are unable to get this user
-      <NuxtLink to="/profiles"> Go back to all users</NuxtLink>
+      <NuxtLink to="/profiles"> Go back to all profiles</NuxtLink>
     </p>
   </div>
 </template>
@@ -31,4 +39,11 @@ if (error.value) {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+</style>

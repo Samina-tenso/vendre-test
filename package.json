@@ -6,11 +6,11 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "start": "nuxt start",
-    "preview": "nuxi preview",
-    "postinstall": "nuxi prepare",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
     "test": "vitest --run --reporter verbose --globals",
     "test:watch": "vitest --run --reporter verbose --globals",
-    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
+    "deploy": "nuxt generate && gh-pages --dotfiles -d .output/public"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",

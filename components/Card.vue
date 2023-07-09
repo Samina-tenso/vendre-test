@@ -7,12 +7,18 @@
       <h2>{{ first_name }}</h2>
       <h2>{{ last_name }}</h2>
     </div>
-    <NuxtLink :to="`/profiles/${id}`">Contact</NuxtLink>
+    <div v-if="isLink">
+      <NuxtLink :to="`/profiles/${id}`">Contact</NuxtLink>
+    </div>
+    <div v-else>
+      <p>Email: {{ email }}</p>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 defineProps<{
+  isLink: boolean;
   first_name: string;
   last_name: string;
   email: string;
@@ -31,8 +37,11 @@ defineProps<{
   margin-bottom: 1rem;
   border-radius: 4%;
   text-align: center;
+  width: 240px;
   filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.1));
-
+  &:hover {
+    filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.1));
+  }
   &__image {
     width: 10rem;
     height: 10rem;
@@ -47,9 +56,6 @@ defineProps<{
     display: flex;
     gap: 0.5rem;
     flex-direction: row;
-  }
-  :hover {
-    filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.1));
   }
 }
 </style>

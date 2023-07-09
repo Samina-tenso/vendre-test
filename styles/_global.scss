@@ -8,10 +8,16 @@ body{
     align-items: center;
     justify-content: center;
     height: 100vh;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
 
 p {
   font-weight: 300;
+}
+
+ul {
+    padding: 0;
 }
 a {
     color: black;

@@ -12,6 +12,7 @@
         class="profiles__item"
       >
         <Card
+          :isLink="true"
           :first_name="profile.first_name"
           :last_name="profile.last_name"
           :id="profile.id"
@@ -21,14 +22,22 @@
       </li>
     </ul>
     <div class="button-wrapper">
-      <button class="button button--prev" @click="previous()" v-if="page > 1">
+      <button
+        :class="`${
+          page > 1 ? ' button--active' : 'button--disabled'
+        }  button button--prev`"
+        @click="previous()"
+      >
         Previous
       </button>
       {{ page }} / {{ res?.pages }}
       <button
-        class="button button--next"
+        :class="`${
+          res?.pages && page < res?.pages
+            ? ' button--active'
+            : 'button--disabled'
+        }  button button--next`"
         @click="next()"
-        v-if="res?.pages && page < res?.pages"
       >
         Next
       </button>
@@ -83,8 +92,13 @@ const { res, error, pending, previous, next } = await useGetProfiles(
     &:hover {
       filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.1));
     }
+    &--disabled {
+      color: rgba(0, 0, 0, 0.2);
+      filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.1));
+      background-color: rgba(71, 71, 71, 0.1);
+    }
     &--prev {
-      border-radius: 2.5rem;
+      border-radius: 2.5rem 0 0 2.5rem;
     }
     &--next {
       border-radius: 0 2.5rem 2.5rem 0;
